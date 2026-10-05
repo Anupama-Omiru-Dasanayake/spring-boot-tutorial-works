@@ -10,4 +10,6 @@ public class InfoController {
     public String getInfo(){
         return "This application is about REST API Endpoints";
     }
+
+
 }

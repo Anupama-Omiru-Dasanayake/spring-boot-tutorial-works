@@ -21,19 +21,27 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name) {
+    public Person(String name, String email) {
         this.name = name;
+        this.email = email;
     }
 
     public String getName() {
         return name;
     }
-    public String getEmail(){return email;}
 
     public void setName(String name) {
         this.name = name;
     }
 
     // TODO (Activity 3): add the "email" field and its getter here.
+
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
 
 }
