@@ -32,6 +32,19 @@ public class Customer {
         return address;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }
