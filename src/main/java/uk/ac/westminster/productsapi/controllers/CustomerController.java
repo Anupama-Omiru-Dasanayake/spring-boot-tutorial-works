@@ -2,11 +2,9 @@ package uk.ac.westminster.productsapi.controllers;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import uk.ac.westminster.productsapi.Address;
-import uk.ac.westminster.productsapi.Customer;
+import uk.ac.westminster.productsapi.dto.Customer;
 
 import java.util.ArrayList;
 import java.util.List;

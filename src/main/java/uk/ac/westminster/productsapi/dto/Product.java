@@ -1,4 +1,4 @@
-package uk.ac.westminster.productsapi;
+package uk.ac.westminster.productsapi.dto;
 
 public class Product {
 
