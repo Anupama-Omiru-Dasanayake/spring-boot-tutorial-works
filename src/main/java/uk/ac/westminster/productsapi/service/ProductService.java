@@ -2,6 +2,8 @@ package uk.ac.westminster.productsapi.service;
 
 
 import org.springframework.stereotype.Service;
+import uk.ac.westminster.productsapi.dto.DigitalProduct;
+import uk.ac.westminster.productsapi.dto.PhysicalProduct;
 import uk.ac.westminster.productsapi.dto.Product;
 
 import java.util.ArrayList;
@@ -14,13 +16,26 @@ public class ProductService {
     private final List<Product> products = new ArrayList<>();
     private Long nextId = 1L;
 
+
+
     public List<Product> getAllProducts(){
+
+        Product d1 = new DigitalProduct(nextId++,"image", 100000.0, "test.com", 100.0);
+
+        Product p1 = new PhysicalProduct(nextId++, "Laptop", 200000.0, 1.0,"24 x 24" );
+        products.add(d1);
+        products.add(p1);
+
+
+
         return products;
     }
 
     public Product addProduct(Product product){
+
         product.setId(nextId++);
         products.add(product);
+
         return product;
     }
 
@@ -39,6 +54,9 @@ public class ProductService {
         return products.stream()
                 .filter(p -> p.getName().toLowerCase().contains(name))
                 .toList();
+
     }
+
+
 
 }

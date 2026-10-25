@@ -1,16 +1,26 @@
 package uk.ac.westminster.productsapi.dto;
 
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
+@JsonSubTypes({
+        @JsonSubTypes.Type(DigitalProduct.class),
+        @JsonSubTypes.Type(PhysicalProduct.class)
+})
+
 public class Product {
 
     private Long id;
     private String name;
-    private double price;
+    private Double price;
 
     public Product(){
 
     }
 
-    public Product(Long id, String name, double price){
+    public Product(Long id, String name, Double price){
         this.id = id;
         this.name = name;
         this.price = price;
@@ -28,9 +38,6 @@ public class Product {
         return this.price;
     }
 
-
-
-
     public void setName(String name){
         this.name = name;
 
@@ -40,7 +47,7 @@ public class Product {
         this.id = id;
     }
 
-    public void setPrice(double price){
+    public void setPrice(Double price){
         this.price = price;
     }
 
