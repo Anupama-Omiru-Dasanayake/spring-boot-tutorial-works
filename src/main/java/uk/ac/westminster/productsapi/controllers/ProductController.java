@@ -44,7 +44,10 @@ public class ProductController {
         return productService.findByName(name);
     }
 
-
+    @GetMapping("/summaries")
+    public List<String> getAllSummary(){
+        return productService.getAllSummaries();
+    }
 
 
 

@@ -1,6 +1,6 @@
 package uk.ac.westminster.productsapi.dto;
 
-public class PhysicalProduct extends Product{
+public class PhysicalProduct extends Product implements Discountable{
 
     private Double weightKg;
     private String dimensions;
@@ -28,5 +28,29 @@ public class PhysicalProduct extends Product{
 
     public void setDimensions(String dimensions) {
         this.dimensions = dimensions;
+    }
+
+    @Override
+    public String getSummary(){
+        return "Id: " + getId()
+                + " | Name: " + getName()
+                + " | Price: " + getPrice()
+                + " | Weight: " + getWeightKg()
+                + " | Dimensions: " + getDimensions();
+    }
+
+    private double discountedPrice;
+
+    @Override
+    public void applyDiscount(double rate){
+        double capped = Math.min(rate, 0.20);
+        this.discountedPrice = getPrice()  * (1-rate);
+
+    }
+
+    @Override
+    public double getDiscountedPrice(){
+        return discountedPrice;
+
     }
 }

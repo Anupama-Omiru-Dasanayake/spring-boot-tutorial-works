@@ -3,12 +3,15 @@ package uk.ac.westminster.productsapi.service;
 
 import org.springframework.stereotype.Service;
 import uk.ac.westminster.productsapi.dto.DigitalProduct;
+import uk.ac.westminster.productsapi.dto.Discountable;
 import uk.ac.westminster.productsapi.dto.PhysicalProduct;
 import uk.ac.westminster.productsapi.dto.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class ProductService {
@@ -55,6 +58,23 @@ public class ProductService {
                 .filter(p -> p.getName().toLowerCase().contains(name))
                 .toList();
 
+    }
+
+    public List<String> getAllSummaries(){
+
+//        return products.stream().map(p -> p.getSummary()).toList();
+
+//        return products.stream().map(Product::getSummary).toList();
+
+        List<String> summaries = new ArrayList<>();
+        for (Product p : products){
+            summaries.add(p.getSummary());
+
+            if (p instanceof Discountable d){
+                d.applyDiscount(0.10);
+            }
+        }
+        return summaries;
     }
 
 
